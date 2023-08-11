@@ -86,67 +86,85 @@
     </center>
     <div class="scontainer">
         <div class="main-video">
-
             <div class="video">
-                <video src="images/MiracleH.mp4" controls muted autoplay></video>
-                <h3 class="title">01. Faith on Faith</h3>
+                <video class="main-video-source" src="images/INTROX.mp4" controls muted autoplay></video>
+                <iframe class="main-iframe" width="100%" height= "400" frameborder="0" allowfullscreen></iframe>
+                <h3 class="title">00. Intro @FCI</h3>
             </div>
         </div>
         <div class="video-list">
             <div class="vid active">
-                <video src="images/MiracleH.mp4" muted></video>
-                <h3 class="title">01. Faith on Faith</h3>
+                <iframe width="50%" height="130" src="https://www.youtube.com/embed/ahkyJynt3I4" frameborder="0"></iframe>
+                <h3 class="title">01. The power of Relationships</h3>
             </div>
             <div class="vid">
-                <video src="images/MiracleH.mp4" muted></video>
+                <iframe width="50%" height="130"src="https://www.youtube.com/embed/ahkyJynt3I4"  frameborder="0"></iframe>
                 <h3 class="title">02. The perfect will of God vs The imperfect will of God</h3>
             </div>
             <div class="vid">
-                <video src="images/MiracleH.mp4" muted></video>
-                <h3 class="title">03. The power of the tongue</h3>
+                <iframe width="50%" height="130"src="https://www.youtube.com/embed/n03mRRnK8gI"frameborder="0"></iframe>
+                <h3 class="title">03. How God Builds his Church</h3>
             </div>
             <div class="vid">
-                <video src="images/MiracleH.mp4" muted></video>
-                <h3 class="title">04. Abrahams Blessings</h3>
+                <iframe width="50%" height="130" src="https://www.youtube.com/embed/6Rxw1H906t8?enablejsapi=1" frameborder="0" allowfullscreen controls></iframe>
+                <h3 class="title">04. Devine Health is your birth right</h3>
+            </div>
+            
+            <div class="vid">
+                <iframe width="50%" height="130"src="https://www.youtube.com/embed/6Rxw1H906t8"frameborder="0"></iframe>
+                <h3 class="title">05. Benefits of being planted in the house of the Lord P1</h3>
             </div>
             <div class="vid">
-                <video src="images/MiracleH.mp4" muted></video>
-                <h3 class="title">05. Spiritual warfare</h3>
+                <iframe width="50%" height="130"src="https://www.youtube.com/embed/6Rxw1H906t8"frameborder="0"></iframe>
+                <h3 class="title">06. Benefits of being planted in the house of the Lord P2</h3>
             </div>
             <div class="vid">
-                <video src="images/MiracleH.mp4" muted></video>
-                <h3 class="title">06. Breaking Alters</h3>
+                <iframe width="50%" height="130"src="https://www.youtube.com/embed/ahkyJynt3I4" frameborder="0"></iframe>
+                <h3 class="title">07. The Holy spirit as a Gift</h3>
             </div>
-            <div class="vid">
-                <video src="images/MiracleH.mp4" muted></video>
-                <h3 class="title">07. The garment</h3>
-            </div>
-            <div class="vid">
-                <video src="images/MiracleH.mp4" muted></video>
-                <h3 class="title">08. New Life</h3>
-            </div>
+            
         </div>
 
     </div>
 
     <script>
         let listVideo = document.querySelectorAll('.video-list .vid');
-        let mainVideo = document.querySelector('.main-video video');
+        let mainIframe = document.querySelector('.main-video .main-iframe');
+        let mainVideoSource = document.querySelector('.main-video .main-video-source');
         let title = document.querySelector('.main-video .title');
-
+    
         listVideo.forEach(video => {
             video.onclick = () => {
                 listVideo.forEach(vid => vid.classList.remove('active'));
                 video.classList.add('active');
                 if (video.classList.contains('active')) {
-                    let src = video.children[0].getAttribute('src');
-                    mainVideo.src = src;
-                    let text = video.children[1].innerHTML;
+                    let src = video.querySelector('iframe') ? video.querySelector('iframe').getAttribute('src') : '';
+                    let videoSrc = video.querySelector('video') ? video.querySelector('video').getAttribute('src') : '';
+    
+                    mainIframe.setAttribute('src', src);
+                    mainVideoSource.setAttribute('src', videoSrc);
+    
+                    if (src !== '') {
+                        mainIframe.style.display = 'block';
+                        mainVideoSource.style.display = 'none';
+                    } else {
+                        mainIframe.style.display = 'none';
+                        mainVideoSource.style.display = 'block';
+                        mainVideoSource.load();
+                        mainVideoSource.play();
+                    }
+    
+                    let text = video.querySelector('.title').innerHTML;
                     title.innerHTML = text;
-                };
+    
+                    // Scroll to the main video on click
+                    mainIframe.scrollIntoView({ behavior: 'smooth' }); // Adjust the behavior as needed
+                }
             };
         });
     </script>
+    
+    
     </section>
     </div>
     <!-- Start Footer -->
@@ -159,7 +177,7 @@
                 <div class="col-12 col-md-6 col-lg-3 container-lg pt-2 pb-2">
                     <p class="h5">CONTACT US</p>
                     <p> <i class="text-success fa fa-map-marker"></i> #Black Chain Centre, Gauteng, Soweto, SA.</p>
-                    <p> <i class="text-success fa fa-phone"></i> +2765456789</p>
+                    <p> <i class="text-success fa fa-phone"></i> <a href="tel: +27 670 047 660">+27 670 047 660</a> </p>
                     <p> <i class="text-success fa fa-envelope-open"></i> FCI </p>
                 </div>
 
