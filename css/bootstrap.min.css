@@ -6785,9 +6785,6 @@ a.close.disabled {
 }
 
 .carousel-item {
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
     position: relative;
     display: none;
     float: left;
@@ -6800,24 +6797,15 @@ a.close.disabled {
     transition: transform .6s ease-in-out, -webkit-transform .6s ease-in-out
 }
 
-
-/* Responsive styles for small screens (e.g., mobile devices) */
-
-@media (max-width: 768px) {
-    .carousel-item {
-        background-size: cover;
-        /* Adjust this property as needed */
-    }
-}
-
-
-/* Responsive styles for larger screens (e.g., tablets and desktops) */
-
-@media (min-width: 769px) {
-    .carousel-item {
-        background-size: contain;
-        /* Adjust this property as needed */
-    }
+.carousel-item .bg-dark {
+    min-height: 500px;
+    /* Minimum height for the container */
+    background-size: cover;
+    /* Cover the entire container */
+    background-attachment: fixed;
+    /* Fixed background */
+    background-position: center center;
+    /* Center the background image */
 }
 
 @media (prefers-reduced-motion:reduce) {
