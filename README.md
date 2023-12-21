@@ -1,6 +1,8 @@
 # FCI-Website
  Website project for FCI
-This is a church website for Faith Chapel International, Website is Under development and additional feature are being added with time
+This is a church website for Faith Chapel International, Website is Under continuous development as additional feature are being added with time
+
+view site: Https://fcitv.co.za
 
 Enquiries : mxcreations0123@gmail.com
 
